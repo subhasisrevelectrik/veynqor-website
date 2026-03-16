@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "SIGNAL — Cloud Analytics Platform",
+  title: "SIGNAL -Cloud Analytics Platform",
   description:
     "Real-time fleet health dashboards with AI-powered analytics. Visualize every CAN signal, ask questions in plain English, and catch failures before they happen.",
 };
@@ -12,7 +12,7 @@ export default function SignalPage() {
     {
       title: "Real-Time Signal Visualization",
       description:
-        "Watch live data streams from every vehicle in your fleet. Battery SOC, cell voltages, motor temps, and hundreds of other signals — updating in real time.",
+        "Watch live data streams from every vehicle in your fleet. Battery SOC, cell voltages, motor temps, and hundreds of other signals -updating in real time.",
     },
     {
       title: "Historical Time-Series Analysis",
@@ -22,7 +22,7 @@ export default function SignalPage() {
     {
       title: "Multi-Signal Overlay",
       description:
-        "Plot motor temperature alongside battery discharge rate alongside ambient temperature — on the same chart. Correlate signals across systems to find root causes faster.",
+        "Plot motor temperature alongside battery discharge rate alongside ambient temperature -on the same chart. Correlate signals across systems to find root causes faster.",
     },
     {
       title: "AI-Powered Fleet Assistant",
@@ -247,7 +247,7 @@ export default function SignalPage() {
               <h3 className="text-white font-semibold mb-3">Secure by Default</h3>
               <p className="text-sm text-gray-400">
                 End-to-end encryption, role-based access control, and audit logging.
-                Your fleet data is your competitive advantage — we treat it that way.
+                Your fleet data is your competitive advantage -we treat it that way.
               </p>
             </div>
           </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "R-DRIVE edge telemetry hardware and SIGNAL cloud analytics — the complete fleet intelligence stack from Veynqor.",
+    "V-DRIVE edge telemetry hardware and SIGNAL cloud analytics -the complete fleet intelligence stack from Veynqor.",
 };
 
 export default function ProductsPage() {
@@ -21,7 +21,7 @@ export default function ProductsPage() {
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl">
               From the CAN bus connector in the vehicle to the AI-powered dashboard
-              on your screen — two products that work together to give you
+              on your screen -two products that work together to give you
               signal-level visibility into every vehicle in your fleet.
             </p>
           </div>
@@ -31,7 +31,7 @@ export default function ProductsPage() {
       {/* Product Cards */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
-          {/* R-DRIVE */}
+          {/* V-DRIVE */}
           <div className="rounded-2xl border border-white/5 bg-surface overflow-hidden">
             <div className="aspect-[16/9] bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center">
               <div className="w-24 h-24 rounded-2xl border-2 border-electric/30 bg-electric/5 flex items-center justify-center">
@@ -44,7 +44,7 @@ export default function ProductsPage() {
               </div>
             </div>
             <div className="p-8">
-              <h2 className="text-2xl font-bold text-white mb-1">R-DRIVE</h2>
+              <h2 className="text-2xl font-bold text-white mb-1">V-DRIVE</h2>
               <p className="text-electric text-sm font-medium mb-4">Edge Telemetry Device</p>
               <p className="text-gray-400 mb-6">
                 A compact, automotive-grade CAN bus telemetry device that installs in minutes
@@ -68,7 +68,7 @@ export default function ProductsPage() {
                 ))}
               </ul>
               <Link
-                href="/products/r-drive"
+                href="/products/v-drive"
                 className="inline-flex items-center text-sm text-electric font-medium hover:gap-2 gap-1 transition-all"
               >
                 View full specs
@@ -138,7 +138,7 @@ export default function ProductsPage() {
               Better together
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              R-DRIVE captures deep vehicle data at the edge. SIGNAL turns that data
+              V-DRIVE captures deep vehicle data at the edge. SIGNAL turns that data
               into actionable intelligence in the cloud. Together, they form the only
               end-to-end platform purpose-built for commercial EV fleet health.
             </p>
@@ -152,7 +152,7 @@ export default function ProductsPage() {
               </div>
               <h3 className="text-white font-semibold mb-2">Install</h3>
               <p className="text-sm text-gray-500">
-                Plug R-DRIVE into the vehicle&apos;s CAN bus via OBD-II or direct harness.
+                Plug V-DRIVE into the vehicle&apos;s CAN bus via OBD-II or direct harness.
                 Five-minute install, no tools required.
               </p>
             </div>
@@ -166,7 +166,7 @@ export default function ProductsPage() {
               </div>
               <h3 className="text-white font-semibold mb-2">Connect</h3>
               <p className="text-sm text-gray-500">
-                R-DRIVE decodes CAN signals at the edge and uploads data over 4G to
+                V-DRIVE decodes CAN signals at the edge and uploads data over 4G to
                 the SIGNAL cloud in near real-time.
               </p>
             </div>

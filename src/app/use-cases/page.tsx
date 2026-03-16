@@ -13,11 +13,11 @@ const useCases = [
     label: "Fleet Operators",
     badge: "Primary",
     headline: "See every vehicle\u2019s health in real time. Catch failures before they strand your driver.",
-    audience: "Electric bus operators, last-mile delivery fleets, commercial EV fleets (50\u2013500 vehicles)",
+    audience: "Electric bus operators, last-mile delivery fleets, commercial EV fleets (50-500 vehicles)",
     painPoints: [
-      "Unplanned downtime costs $500\u2013$1,500 per vehicle per day",
+      "Unplanned downtime costs $500-$1,500 per vehicle per day",
       "No real-time visibility into battery, motor, or drivetrain health",
-      "Reactive maintenance — you find out about problems after breakdowns",
+      "Reactive maintenance -you find out about problems after breakdowns",
       "OEM telematics are siloed and surface-level at best",
     ],
     solutions: [
@@ -27,7 +27,7 @@ const useCases = [
       "One platform for every vehicle, regardless of OEM",
     ],
     outcome:
-      "Fleet operators using signal-level diagnostics catch degrading components weeks before failure — turning emergency tow calls into scheduled service visits.",
+      "Fleet operators using signal-level diagnostics catch degrading components weeks before failure -turning emergency tow calls into scheduled service visits.",
   },
   {
     id: "municipal-transit",
@@ -39,12 +39,12 @@ const useCases = [
       "FTA compliance reporting requires deep vehicle health documentation",
       "Multiple OEMs mean multiple disconnected telematics systems",
       "Grant-funded vehicles require detailed data reporting on utilization and health",
-      "Legacy telematics provide GPS and fault codes — not the depth auditors need",
+      "Legacy telematics provide GPS and fault codes -not the depth auditors need",
     ],
     solutions: [
       "OEM-agnostic platform that monitors any vehicle with an accessible CAN bus",
       "Comprehensive data exports for FTA compliance and grant reporting",
-      "Historical time-series data for every signal — battery, motor, charging, drivetrain",
+      "Historical time-series data for every signal -battery, motor, charging, drivetrain",
       "AI-powered querying for rapid report generation",
     ],
     outcome:
@@ -64,7 +64,7 @@ const useCases = [
     ],
     solutions: [
       "Continuous battery cell-level health tracking throughout the lease or rental term",
-      "Automated condition reports backed by real vehicle data — not subjective inspections",
+      "Automated condition reports backed by real vehicle data -not subjective inspections",
       "Abuse detection alerts for deep discharge, thermal events, and abnormal charging patterns",
       "Battery degradation curves that inform accurate residual value calculations",
     ],

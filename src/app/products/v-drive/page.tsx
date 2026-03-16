@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "R-DRIVE — Edge Telemetry Device",
+  title: "V-DRIVE -Edge Telemetry Device",
   description:
     "Compact CAN bus edge telemetry hardware for commercial EVs. 4G LTE, GPS, DBC-based signal decoding, and offline buffering in a plug-and-play form factor.",
 };
@@ -12,7 +12,7 @@ export default function RDrivePage() {
     {
       title: "4G LTE Cellular",
       description:
-        "Real-time data upload over commercial LTE networks. No Wi-Fi dependency — your data flows from the vehicle to the cloud wherever there is cellular coverage.",
+        "Real-time data upload over commercial LTE networks. No Wi-Fi dependency -your data flows from the vehicle to the cloud wherever there is cellular coverage.",
     },
     {
       title: "Built-in GPS",
@@ -27,7 +27,7 @@ export default function RDrivePage() {
     {
       title: "Edge Processing",
       description:
-        "On-device signal decoding, data batching, and compression. Local buffering when offline with automatic upload resume when connectivity returns — zero data loss.",
+        "On-device signal decoding, data batching, and compression. Local buffering when offline with automatic upload resume when connectivity returns -zero data loss.",
     },
     {
       title: "Flexible Power",
@@ -69,7 +69,7 @@ export default function RDrivePage() {
                 Products
               </Link>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">
-                R-DRIVE
+                V-DRIVE
               </h1>
               <p className="text-electric text-lg font-medium mb-6">
                 Edge Telemetry Device
@@ -140,10 +140,10 @@ export default function RDrivePage() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-bold text-white mb-4">
-                What R-DRIVE captures
+                What V-DRIVE captures
               </h2>
               <p className="text-gray-400 mb-8">
-                R-DRIVE decodes the raw CAN bus data flowing through your vehicle&apos;s
+                V-DRIVE decodes the raw CAN bus data flowing through your vehicle&apos;s
                 network and extracts the signals that matter for fleet health monitoring.
               </p>
               <div className="grid grid-cols-1 gap-3">
@@ -161,9 +161,9 @@ export default function RDrivePage() {
                 DBC flexibility
               </h2>
               <p className="text-gray-400 mb-6">
-                R-DRIVE ships with built-in support for popular commercial EV platforms.
+                V-DRIVE ships with built-in support for popular commercial EV platforms.
                 For any vehicle with an accessible CAN bus, upload a custom DBC file and
-                R-DRIVE will decode those signals too.
+                V-DRIVE will decode those signals too.
               </p>
               <div className="rounded-xl border border-white/5 bg-surface p-6">
                 <div className="text-sm text-gray-500 font-mono space-y-1">
@@ -194,19 +194,19 @@ export default function RDrivePage() {
                 step: "1",
                 title: "Install",
                 description:
-                  "Plug R-DRIVE into the vehicle's OBD-II port or wire it to a 12V harness. Mount the compact enclosure under the dash or in the engine bay. Five minutes, no special tools.",
+                  "Plug V-DRIVE into the vehicle's OBD-II port or wire it to a 12V harness. Mount the compact enclosure under the dash or in the engine bay. Five minutes, no special tools.",
               },
               {
                 step: "2",
                 title: "Connect",
                 description:
-                  "R-DRIVE powers on, locks onto the cellular network and GPS satellites, and begins decoding CAN signals immediately. Data flows to the SIGNAL cloud platform in near real-time.",
+                  "V-DRIVE powers on, locks onto the cellular network and GPS satellites, and begins decoding CAN signals immediately. Data flows to the SIGNAL cloud platform in near real-time.",
               },
               {
                 step: "3",
                 title: "Monitor",
                 description:
-                  "Open the SIGNAL dashboard and see live vehicle health data. Battery SOC, cell voltages, motor temps, charging status — every signal, decoded and visualized.",
+                  "Open the SIGNAL dashboard and see live vehicle health data. Battery SOC, cell voltages, motor temps, charging status -every signal, decoded and visualized.",
               },
             ].map((item) => (
               <div key={item.step} className="text-center">

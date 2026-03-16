@@ -22,8 +22,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-sm font-semibold mb-4">Products</h4>
             <div className="flex flex-col gap-2">
-              <Link href="/products/r-drive" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
-                R-DRIVE
+              <Link href="/products/v-drive" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+                V-DRIVE
               </Link>
               <Link href="/products/signal" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
                 SIGNAL

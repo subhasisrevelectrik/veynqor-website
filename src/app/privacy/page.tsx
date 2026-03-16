@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Veynqor, Inc. privacy policy — how we collect, use, and protect your data.",
+  description: "Veynqor, Inc. privacy policy -how we collect, use, and protect your data.",
 };
 
 export default function PrivacyPage() {
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
               </li>
               <li>
                 <strong className="text-gray-300">Vehicle Telemetry Data:</strong> For customers using our products,
-                we collect vehicle health and performance data transmitted by R-DRIVE devices, including
+                we collect vehicle health and performance data transmitted by V-DRIVE devices, including
                 CAN bus signals, GPS coordinates, and diagnostic information.
               </li>
             </ul>

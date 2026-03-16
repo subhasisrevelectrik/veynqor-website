@@ -21,7 +21,7 @@ function HeroSection() {
 
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 opacity-0 animate-fade-in-up animate-delay-200">
             Veynqor builds the hardware and software that gives fleet operators
-            signal-level visibility into every vehicle&apos;s health — from battery
+            signal-level visibility into every vehicle&apos;s health -from battery
             cells to motor temps. The fleet platform that reads your vehicles&apos;
             vital signs.
           </p>
@@ -49,11 +49,11 @@ function HeroSection() {
 function ProductCards() {
   const products = [
     {
-      name: "R-DRIVE",
+      name: "V-DRIVE",
       tagline: "Edge Telemetry Device",
       description:
-        "Compact CAN bus hardware that plugs into any commercial EV. Real-time signal decoding, 4G upload, GPS tracking, and offline buffering — all in a device that installs in minutes.",
-      href: "/products/r-drive",
+        "Compact CAN bus hardware that plugs into any commercial EV. Real-time signal decoding, 4G upload, GPS tracking, and offline buffering -all in a device that installs in minutes.",
+      href: "/products/v-drive",
       icon: (
         <svg className="w-8 h-8" fill="none" viewBox="0 0 32 32" stroke="currentColor" strokeWidth={1.5}>
           <rect x="4" y="8" width="24" height="16" rx="3" />
@@ -90,7 +90,7 @@ function ProductCards() {
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             From the edge device in the vehicle to the analytics platform on your
-            screen — Veynqor gives you end-to-end fleet intelligence.
+            screen -Veynqor gives you end-to-end fleet intelligence.
           </p>
         </div>
 
@@ -158,7 +158,7 @@ function DepthAdvantage() {
             <span className="text-electric">CAN bus tells you why.</span>
           </h2>
           <p className="text-gray-400">
-            Most telematics platforms monitor drivers. Veynqor monitors vehicles —
+            Most telematics platforms monitor drivers. Veynqor monitors vehicles
             at the signal level. We see what others can&apos;t.
           </p>
         </div>
@@ -207,7 +207,7 @@ function Stats() {
     { value: "3,000+", label: "CAN signals decoded per vehicle" },
     { value: "< 5s", label: "Edge-to-cloud data latency" },
     { value: "99.9%", label: "Data delivery reliability" },
-    { value: "50\u2013500", label: "Vehicles per fleet deployment" },
+    { value: "50-500", label: "Vehicles per fleet deployment" },
   ];
 
   return (

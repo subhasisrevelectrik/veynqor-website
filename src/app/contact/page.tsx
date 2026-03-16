@@ -159,10 +159,10 @@ export default function ContactPage() {
                       className="w-full rounded-lg bg-navy-800 border border-white/5 px-4 py-2.5 text-white text-sm focus:outline-none focus:border-electric transition-colors"
                     >
                       <option value="">Select fleet size</option>
-                      <option value="1-10">1–10 vehicles</option>
-                      <option value="11-50">11–50 vehicles</option>
-                      <option value="51-100">51–100 vehicles</option>
-                      <option value="101-500">101–500 vehicles</option>
+                      <option value="1-10">1-10 vehicles</option>
+                      <option value="11-50">11-50 vehicles</option>
+                      <option value="51-100">51-100 vehicles</option>
+                      <option value="101-500">101-500 vehicles</option>
                       <option value="500+">500+ vehicles</option>
                     </select>
                   </div>

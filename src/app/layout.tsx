@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Veynqor — Fleet Intelligence Infrastructure",
+    default: "Veynqor -Fleet Intelligence Infrastructure",
     template: "%s | Veynqor",
   },
   description:
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "fleet intelligence",
   ],
   openGraph: {
-    title: "Veynqor — Fleet Intelligence Infrastructure",
+    title: "Veynqor -Fleet Intelligence Infrastructure",
     description:
       "Edge-to-cloud telematics for commercial EV fleets. Signal-level vehicle diagnostics and AI-powered analytics.",
     url: "https://veynqor.com",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Veynqor — Fleet Intelligence Infrastructure",
+    title: "Veynqor -Fleet Intelligence Infrastructure",
     description:
       "Edge-to-cloud telematics for commercial EV fleets. Signal-level vehicle diagnostics and AI-powered analytics.",
   },
