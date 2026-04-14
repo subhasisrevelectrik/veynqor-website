@@ -1,4 +1,5 @@
 import Link from "next/link";
+import EmailCaptureForm from "@/components/EmailCaptureForm";
 
 function HeroSection() {
   return (
@@ -228,27 +229,10 @@ function Stats() {
   );
 }
 
-function SocialProof() {
-  return (
-    <section className="py-24 px-6 border-t border-white/5">
-      <div className="max-w-7xl mx-auto text-center">
-        <p className="text-sm text-gray-600 uppercase tracking-wider mb-8">
-          Trusted by forward-thinking fleet operators
-        </p>
-        <div className="flex flex-wrap justify-center gap-12 opacity-30">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className="w-32 h-10 rounded bg-white/5 flex items-center justify-center text-xs text-gray-600"
-            >
-              Partner {i}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+// TODO: restore with real partner logos when 2-3 are confirmed
+// Previously rendered a <SocialProof /> component here with the
+// "Trusted by forward-thinking fleet operators" section and 5
+// placeholder partner tiles. See git history for the original markup.
 
 function CTA() {
   return (
@@ -282,6 +266,24 @@ function CTA() {
   );
 }
 
+function KickstarterCapture() {
+  return (
+    <section className="py-24 px-6 border-t border-white/5 gradient-mesh">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Get notified when V-DRIVE launches on Kickstarter
+        </h2>
+        <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+          Be the first to get early-bird pricing when our Kickstarter campaign goes live.
+        </p>
+        <div className="flex justify-center">
+          <EmailCaptureForm source="homepage_footer" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -289,7 +291,8 @@ export default function Home() {
       <ProductCards />
       <DepthAdvantage />
       <Stats />
-      <SocialProof />
+      {/* TODO: restore <SocialProof /> with real partner logos */}
+      <KickstarterCapture />
       <CTA />
     </>
   );

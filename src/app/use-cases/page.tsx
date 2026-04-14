@@ -2,12 +2,38 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Use Cases",
+  title: "Fleet, Transit, Rental, Turo — Veynqor Use Cases",
   description:
-    "How fleet operators, transit agencies, and EV rental companies use Veynqor for real-time vehicle health monitoring and predictive maintenance.",
+    "How fleet operators, Turo hosts, transit agencies, and EV rental companies use Veynqor for real-time vehicle health monitoring.",
+  openGraph: {
+    title: "Fleet, Transit, Rental, Turo — Veynqor Use Cases",
+    description:
+      "How fleet operators, Turo hosts, transit agencies, and EV rental companies use Veynqor for real-time vehicle health monitoring.",
+  },
 };
 
 const useCases = [
+  {
+    id: "turo-hosts",
+    label: "Turo Hosts & Independent Car-Share Operators",
+    badge: null,
+    headline: "Know what your car knows — before the next renter books it.",
+    audience: "Turo hosts, Getaround operators, peer-to-peer car-share owners (1-20 vehicles)",
+    painPoints: [
+      "Guests return cars saying they drove fine; battery cell degradation doesn't show up on the dashboard",
+      "Deep-discharge and hard-regen abuse is invisible without signal-level data",
+      "Return-condition disputes come down to your word vs. the guest's — no objective evidence",
+      "Residual value estimates for used EVs are guesswork without battery health history",
+    ],
+    solutions: [
+      "Cell-level battery health tracked across every rental, not just fault codes",
+      "Abuse detection alerts: deep discharge, thermal events, abnormal fast-charging",
+      "Objective post-rental condition reports, pulled from real CAN data",
+      "Battery degradation curves that inform accurate resale pricing",
+    ],
+    outcome:
+      "Turo hosts on Veynqor catch degrading cells weeks before range drops — protecting 5-star ratings, reducing disputes, and preserving resale value.",
+  },
   {
     id: "fleet-operators",
     label: "Fleet Operators",

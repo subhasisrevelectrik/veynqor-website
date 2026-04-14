@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AnnouncementBar from "@/components/AnnouncementBar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,17 +28,20 @@ export const metadata: Metadata = {
     "fleet intelligence",
   ],
   openGraph: {
-    title: "Veynqor -Fleet Intelligence Infrastructure",
+    title: "Veynqor — Fleet Intelligence Infrastructure",
     description:
       "Edge-to-cloud telematics for commercial EV fleets. Signal-level vehicle diagnostics and AI-powered analytics.",
     url: "https://veynqor.com",
     siteName: "Veynqor",
     type: "website",
     locale: "en_US",
+    // TODO: Replace with real OG image (1200x630, dark bg with "Veynqor — Know What Your Car Knows")
+    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Veynqor — Know What Your Car Knows" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Veynqor -Fleet Intelligence Infrastructure",
+    site: "@veynqor",
+    title: "Veynqor — Fleet Intelligence Infrastructure",
     description:
       "Edge-to-cloud telematics for commercial EV fleets. Signal-level vehicle diagnostics and AI-powered analytics.",
   },
@@ -56,6 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <AnnouncementBar />
         <Navbar />
         <main className="min-h-screen pt-16">{children}</main>
         <Footer />
