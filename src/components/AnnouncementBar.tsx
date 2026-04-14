@@ -1,25 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useSyncExternalStore, useCallback } from "react";
 
 const DISMISS_KEY = "vq_ks_bar_dismissed";
 
+function subscribe(callback: () => void) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
+
+function getSnapshot() {
+  return !localStorage.getItem(DISMISS_KEY);
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
 export default function AnnouncementBar() {
-  const [visible, setVisible] = useState(false);
+  const visible = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  useEffect(() => {
-    if (!localStorage.getItem(DISMISS_KEY)) {
-      setVisible(true);
-    }
-  }, []);
-
-  function dismiss(e: React.MouseEvent) {
+  const dismiss = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     localStorage.setItem(DISMISS_KEY, "1");
-    setVisible(false);
-  }
+    window.dispatchEvent(new StorageEvent("storage"));
+  }, []);
 
   if (!visible) return null;
 
@@ -30,7 +37,7 @@ export default function AnnouncementBar() {
         className="block text-center text-sm py-2 px-10 text-gray-400 hover:text-white transition-colors"
       >
         Coming soon on Kickstarter — get early-bird pricing{" "}
-        <span className="text-electric">→</span>
+        <span className="text-electric">&rarr;</span>
       </Link>
       <button
         onClick={dismiss}
