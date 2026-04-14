@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SocialLinks from "@/components/SocialLinks";
 
 export default function Footer() {
   return (
@@ -14,9 +15,10 @@ export default function Footer() {
                 Veynqor
               </span>
             </Link>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 mb-4">
               Fleet intelligence infrastructure for commercial EV operators.
             </p>
+            <SocialLinks />
           </div>
 
           <div>
