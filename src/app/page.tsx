@@ -228,27 +228,10 @@ function Stats() {
   );
 }
 
-function SocialProof() {
-  return (
-    <section className="py-24 px-6 border-t border-white/5">
-      <div className="max-w-7xl mx-auto text-center">
-        <p className="text-sm text-gray-600 uppercase tracking-wider mb-8">
-          Trusted by forward-thinking fleet operators
-        </p>
-        <div className="flex flex-wrap justify-center gap-12 opacity-30">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className="w-32 h-10 rounded bg-white/5 flex items-center justify-center text-xs text-gray-600"
-            >
-              Partner {i}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+// TODO: restore with real partner logos when 2-3 are confirmed
+// Previously rendered a <SocialProof /> component here with the
+// "Trusted by forward-thinking fleet operators" section and 5
+// placeholder partner tiles. See git history for the original markup.
 
 function CTA() {
   return (
@@ -289,7 +272,7 @@ export default function Home() {
       <ProductCards />
       <DepthAdvantage />
       <Stats />
-      <SocialProof />
+      {/* TODO: restore <SocialProof /> with real partner logos */}
       <CTA />
     </>
   );
