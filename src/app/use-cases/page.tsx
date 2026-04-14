@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Use Cases",
+  title: "Fleet, Transit, Rental, Turo — Veynqor Use Cases",
   description:
-    "How fleet operators, transit agencies, and EV rental companies use Veynqor for real-time vehicle health monitoring and predictive maintenance.",
+    "How fleet operators, Turo hosts, transit agencies, and EV rental companies use Veynqor for real-time vehicle health monitoring.",
+  openGraph: {
+    title: "Fleet, Transit, Rental, Turo — Veynqor Use Cases",
+    description:
+      "How fleet operators, Turo hosts, transit agencies, and EV rental companies use Veynqor for real-time vehicle health monitoring.",
+  },
 };
 
 const useCases = [

@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Products",
+  title: "V-DRIVE & SIGNAL — Veynqor Products",
   description:
-    "V-DRIVE edge telemetry hardware and SIGNAL cloud analytics -the complete fleet intelligence stack from Veynqor.",
+    "V-DRIVE edge telemetry hardware and SIGNAL cloud analytics — the complete fleet intelligence stack from Veynqor.",
+  openGraph: {
+    title: "V-DRIVE & SIGNAL — Veynqor Products",
+    description:
+      "V-DRIVE edge telemetry hardware and SIGNAL cloud analytics — the complete fleet intelligence stack from Veynqor.",
+  },
 };
 
 export default function ProductsPage() {
