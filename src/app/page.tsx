@@ -1,4 +1,5 @@
 import Link from "next/link";
+import EmailCaptureForm from "@/components/EmailCaptureForm";
 
 function HeroSection() {
   return (
@@ -265,6 +266,24 @@ function CTA() {
   );
 }
 
+function KickstarterCapture() {
+  return (
+    <section className="py-24 px-6 border-t border-white/5 gradient-mesh">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Get notified when V-DRIVE launches on Kickstarter
+        </h2>
+        <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+          Be the first to get early-bird pricing when our Kickstarter campaign goes live.
+        </p>
+        <div className="flex justify-center">
+          <EmailCaptureForm source="homepage_footer" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -273,6 +292,7 @@ export default function Home() {
       <DepthAdvantage />
       <Stats />
       {/* TODO: restore <SocialProof /> with real partner logos */}
+      <KickstarterCapture />
       <CTA />
     </>
   );
