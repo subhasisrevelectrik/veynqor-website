@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Veynqor Pilot Partner badge">
+  <defs>
+    <linearGradient id="vq-ring" x1="0" y1="0" x2="240" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00A3FF"/>
+      <stop offset="1" stop-color="#00D4AA"/>
+    </linearGradient>
+    <radialGradient id="vq-fill" cx="0.5" cy="0.4" r="0.7">
+      <stop offset="0" stop-color="#0F1629"/>
+      <stop offset="1" stop-color="#0A0F1C"/>
+    </radialGradient>
+  </defs>
+  <circle cx="120" cy="120" r="112" fill="url(#vq-fill)" stroke="url(#vq-ring)" stroke-width="4"/>
+  <circle cx="120" cy="120" r="96" fill="none" stroke="#1E2742" stroke-width="1.5"/>
+
+  <!-- dotted orbit -->
+  <circle cx="120" cy="120" r="104" fill="none" stroke="#00A3FF" stroke-width="1.5" stroke-dasharray="2 8" opacity="0.6"/>
+
+  <!-- shield / check mark -->
+  <path d="M120 64l34 14v26c0 24-16 40-34 48-18-8-34-24-34-48V78z" fill="none" stroke="#00A3FF" stroke-width="3"/>
+  <path d="M104 118l11 11 22-26" fill="none" stroke="#00D4AA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="120" y="186" text-anchor="middle" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="800" letter-spacing="2">PILOT PARTNER</text>
+  <text x="120" y="206" text-anchor="middle" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10.5" letter-spacing="3">VEYNQOR</text>
+</svg>

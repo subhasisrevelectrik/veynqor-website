@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code local settings (personal, not shared)
+.claude/settings.local.json
+
+# Expansion delivery artifact
+/veynqor-website-expansion.zip
+
+# Commit the env template (values are blank); real env files stay ignored above
+!.env.example

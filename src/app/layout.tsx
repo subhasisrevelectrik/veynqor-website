@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Veynqor -Fleet Intelligence Infrastructure",
+    default: "Veynqor: Fleet Intelligence Infrastructure",
     template: "%s | Veynqor",
   },
   description:
@@ -28,22 +28,23 @@ export const metadata: Metadata = {
     "fleet intelligence",
   ],
   openGraph: {
-    title: "Veynqor — Fleet Intelligence Infrastructure",
+    title: "Veynqor: Fleet Intelligence Infrastructure",
     description:
       "Edge-to-cloud telematics for commercial EV fleets. Signal-level vehicle diagnostics and AI-powered analytics.",
     url: "https://veynqor.com",
     siteName: "Veynqor",
     type: "website",
     locale: "en_US",
-    // TODO: Replace with real OG image (1200x630, dark bg with "Veynqor — Know What Your Car Knows")
-    images: [{ url: "/og-default.png", width: 1200, height: 630, alt: "Veynqor — Know What Your Car Knows" }],
+    // Branded link-preview card. Replace with nicer art when ready.
+    images: [{ url: "/images/og/og-default.png", width: 1200, height: 630, alt: "Veynqor: Know What Your Car Knows" }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@veynqor",
-    title: "Veynqor — Fleet Intelligence Infrastructure",
+    title: "Veynqor: Fleet Intelligence Infrastructure",
     description:
       "Edge-to-cloud telematics for commercial EV fleets. Signal-level vehicle diagnostics and AI-powered analytics.",
+    images: ["/images/og/og-default.png"],
   },
   robots: {
     index: true,
@@ -62,7 +63,7 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <AnnouncementBar />
         <Navbar />
-        <main className="min-h-screen pt-16">{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

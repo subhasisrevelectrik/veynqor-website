@@ -31,17 +31,17 @@ export default function AnnouncementBar() {
   if (!visible) return null;
 
   return (
-    <div className="relative bg-navy-900 border-b border-white/5">
+    <div className="relative bg-gradient-to-r from-electric-dark via-electric to-cyan">
       <Link
         href="/kickstarter"
-        className="block text-center text-sm py-2 px-10 text-gray-400 hover:text-white transition-colors"
+        className="block text-center text-sm font-medium py-2 px-10 text-white hover:opacity-90 transition-opacity"
       >
-        Coming soon on Kickstarter — get early-bird pricing{" "}
-        <span className="text-electric">&rarr;</span>
+        V-DRIVE launches on Kickstarter July 4. Get early-bird pricing{" "}
+        <span aria-hidden="true">&rarr;</span>
       </Link>
       <button
         onClick={dismiss}
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-400 transition-colors"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors"
         aria-label="Dismiss announcement"
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

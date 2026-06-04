@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 280" role="img" aria-label="Data flows from the vehicle CAN bus through V-DRIVE over 4G LTE to the SIGNAL cloud and your dashboard">
+  <defs>
+    <linearGradient id="vq-flow" x1="0" y1="0" x2="1040" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00A3FF"/>
+      <stop offset="1" stop-color="#00D4AA"/>
+    </linearGradient>
+    <linearGradient id="vq-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F1629"/>
+      <stop offset="1" stop-color="#0A0F1C"/>
+    </linearGradient>
+    <marker id="vq-arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#00A3FF"/>
+    </marker>
+  </defs>
+
+  <rect width="1040" height="280" fill="none"/>
+
+  <!-- connectors -->
+  <g stroke="url(#vq-flow)" stroke-width="2.5" marker-end="url(#vq-arrow)" fill="none" opacity="0.9">
+    <line x1="212" y1="140" x2="250" y2="140"/>
+    <line x1="452" y1="140" x2="490" y2="140"/>
+    <line x1="692" y1="140" x2="730" y2="140"/>
+    <line x1="932" y1="140" x2="958" y2="140"/>
+  </g>
+
+  <!-- Node 1: Vehicle CAN bus -->
+  <g>
+    <rect x="20" y="84" width="192" height="112" rx="16" fill="url(#vq-card)" stroke="#1E2742" stroke-width="1.5"/>
+    <rect x="44" y="116" width="48" height="34" rx="6" fill="none" stroke="#00A3FF" stroke-width="2"/>
+    <path d="M52 133h12M76 133h8M52 142h32" stroke="#00A3FF" stroke-width="2" stroke-linecap="round"/>
+    <text x="116" y="128" fill="#E5E7EB" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700">Your vehicle</text>
+    <text x="116" y="150" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="13">Raw CAN bus</text>
+  </g>
+
+  <!-- Node 2: V-DRIVE -->
+  <g>
+    <rect x="252" y="84" width="200" height="112" rx="16" fill="url(#vq-card)" stroke="#00A3FF" stroke-width="1.75"/>
+    <rect x="276" y="114" width="42" height="38" rx="6" fill="none" stroke="#00A3FF" stroke-width="2"/>
+    <circle cx="297" cy="133" r="6" fill="#00A3FF"/>
+    <text x="332" y="124" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700">V-DRIVE</text>
+    <text x="332" y="145" fill="#00A3FF" font-family="Inter, system-ui, sans-serif" font-size="12.5">Decodes at the edge</text>
+    <text x="332" y="162" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="11.5">+ buffers offline</text>
+  </g>
+
+  <!-- Node 3: 4G LTE -->
+  <g>
+    <rect x="492" y="84" width="200" height="112" rx="16" fill="url(#vq-card)" stroke="#1E2742" stroke-width="1.5"/>
+    <g stroke="#00D4AA" stroke-width="2.5" fill="none" stroke-linecap="round">
+      <path d="M520 150a26 26 0 0 1 44 0"/>
+      <path d="M528 150a16 16 0 0 1 28 0"/>
+    </g>
+    <circle cx="542" cy="150" r="3.5" fill="#00D4AA"/>
+    <text x="586" y="128" fill="#E5E7EB" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700">4G LTE</text>
+    <text x="586" y="150" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="13">Real-time upload</text>
+  </g>
+
+  <!-- Node 4: SIGNAL cloud -->
+  <g>
+    <rect x="732" y="84" width="200" height="112" rx="16" fill="url(#vq-card)" stroke="#1E2742" stroke-width="1.5"/>
+    <path d="M760 150a16 16 0 0 1 4-31 20 20 0 0 1 38 4 13 13 0 0 1-3 27z" fill="none" stroke="#00A3FF" stroke-width="2"/>
+    <text x="812" y="128" fill="#E5E7EB" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700">SIGNAL cloud</text>
+    <text x="812" y="150" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="13">Stores + analyzes</text>
+  </g>
+
+  <!-- Node 5: Dashboard -->
+  <g>
+    <rect x="960" y="100" width="64" height="80" rx="10" fill="url(#vq-card)" stroke="#00D4AA" stroke-width="1.75"/>
+    <rect x="972" y="114" width="40" height="6" rx="3" fill="#00A3FF"/>
+    <rect x="972" y="126" width="40" height="4" rx="2" fill="#2A3456"/>
+    <path d="M972 158l9-9 8 8 11-13" fill="none" stroke="#00D4AA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="992" y="196" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="12" text-anchor="middle">You</text>
+  </g>
+</svg>

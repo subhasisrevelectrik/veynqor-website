@@ -30,6 +30,9 @@ export default function Footer() {
               <Link href="/products/signal" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
                 SIGNAL
               </Link>
+              <Link href="/products/signal/demo" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+                Live Demo
+              </Link>
               <Link href="/products" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
                 Overview
               </Link>
@@ -42,11 +45,17 @@ export default function Footer() {
               <Link href="/use-cases" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
                 Use Cases
               </Link>
-              <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
-                Contact
+              <Link href="/partners" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+                Partners
               </Link>
-              <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
-                Privacy Policy
+              <Link href="/roadmap" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+                Roadmap
+              </Link>
+              <Link href="/team" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+                Team
+              </Link>
+              <Link href="/news" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+                Newsroom
               </Link>
             </div>
           </div>
@@ -54,11 +63,20 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-sm font-semibold mb-4">Get Started</h4>
             <div className="flex flex-col gap-2">
+              <Link href="/kickstarter" className="text-sm text-electric hover:text-white transition-colors">
+                Back us on Kickstarter
+              </Link>
               <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
                 Book a Fleet Assessment
               </Link>
               <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
                 Request a Demo
+              </Link>
+              <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+                Contact
+              </Link>
+              <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+                Privacy Policy
               </Link>
             </div>
           </div>

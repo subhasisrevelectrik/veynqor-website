@@ -6,17 +6,17 @@ const faqs = [
   {
     question: "Will this work with my specific car?",
     answer:
-      "V-DRIVE connects via the standard OBD-II port found in every car sold in the US since 1996. CAN signal decoding depth varies by make and model — we're starting with broad coverage across popular Turo vehicles (Tesla, BMW, Hyundai/Kia EVs, and more). If your vehicle has a CAN bus, V-DRIVE can read it. We'll publish a full compatibility list before the Kickstarter launches.",
+      "V-DRIVE connects via the standard OBD-II port found in every car sold in the US since 1996. CAN signal decoding depth varies by make and model. We're starting with broad coverage across popular Turo vehicles (Tesla, BMW, Hyundai/Kia EVs, and more). If your vehicle has a CAN bus, V-DRIVE can read it. We'll publish a full compatibility list before the Kickstarter launches.",
   },
   {
     question: "How is this different from OBD-II scanners I already own?",
     answer:
-      "Standard OBD-II scanners read about 15 generic diagnostic signals — basically, check-engine-light data. V-DRIVE decodes 500+ manufacturer-specific CAN signals: individual battery cell voltages, thermal data, motor temperatures, regen braking patterns, and more. It's the difference between knowing \"something is wrong\" and knowing exactly what, where, and how fast it's degrading.",
+      "Standard OBD-II scanners read about 15 generic diagnostic signals, basically check-engine-light data. V-DRIVE decodes 500+ manufacturer-specific CAN signals: individual battery cell voltages, thermal data, motor temperatures, regen braking patterns, and more. It's the difference between knowing \"something is wrong\" and knowing exactly what, where, and how fast it's degrading.",
   },
   {
     question: "Does it work with EVs?",
     answer:
-      "Absolutely — V-DRIVE was designed EV-first. Battery cell-level health, thermal management data, charging behavior, and regen braking patterns are all part of the signal set. This is the data EV owners and Turo hosts have never been able to access without dealer-level tools.",
+      "Absolutely. V-DRIVE was designed EV-first. Battery cell-level health, thermal management data, charging behavior, and regen braking patterns are all part of the signal set. This is the data EV owners and Turo hosts have never been able to access without dealer-level tools.",
   },
   {
     question: "How is the data stored / who owns it?",
@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "How much will it cost?",
     answer:
-      "We'll announce final pricing when the Kickstarter campaign goes live. Early-bird backers will get a significant discount on both the V-DRIVE hardware and the first year of SIGNAL cloud service. Sign up above to get notified — early-bird slots are limited.",
+      "We'll announce final pricing when the Kickstarter campaign goes live. Early-bird backers will get a significant discount on both the V-DRIVE hardware and the first year of SIGNAL cloud service. Sign up above to get notified. Early-bird slots are limited.",
   },
   {
     question: "When will Kickstarter backers receive their device?",

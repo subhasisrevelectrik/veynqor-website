@@ -63,7 +63,7 @@ export default function EmailCaptureForm({
         </svg>
         <p className="text-white font-medium mb-1">Got it.</p>
         <p className="text-gray-400 text-sm">
-          We&apos;ll email you when the Kickstarter goes live — plus early-bird pricing.
+          We&apos;ll email you when the Kickstarter goes live, plus early-bird pricing.
         </p>
       </div>
     );
