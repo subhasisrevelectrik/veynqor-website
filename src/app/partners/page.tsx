@@ -52,7 +52,7 @@ export default function PartnersPage() {
 
               <figure className="rounded-2xl border border-white/5 bg-surface p-6">
                 <blockquote className="text-gray-300 italic">
-                  Approved customer quote pending final sign-off.
+                  With V-DRIVE on our Phoenix EV, we finally have a clear, real-time view of the battery and powertrain straight from the vehicle, and SIGNAL alerts us the moment something drifts out of range. It is exactly the visibility a fleet like ours needs.
                 </blockquote>
                 <figcaption className="mt-3 text-sm text-gray-500">
                   Colleen Weber, CEO, XPO Auto Sales
