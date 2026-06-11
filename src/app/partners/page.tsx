@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 // TODO(subhasis): confirm this is the XPO "Why We Said Yes" testimonial video.
-const XPO_VIDEO_ID = "0ILWX7gO5vE";
+const XPO_VIDEO_ID = "mb-OV7MzTyQ";
 
 export default function PartnersPage() {
   return (
