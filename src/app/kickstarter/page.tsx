@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Countdown from "@/components/Countdown";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import EmailCaptureForm from "@/components/EmailCaptureForm";
 import KickstarterFAQ from "./KickstarterFAQ";
@@ -8,18 +7,18 @@ import KickstarterFAQ from "./KickstarterFAQ";
 export const metadata: Metadata = {
   title: "V-DRIVE on Kickstarter: Know What Your Car Knows",
   description:
-    "V-DRIVE launches on Kickstarter July 4, 2026. A plug-and-play CAN bus device that reads what your car actually knows, with the SIGNAL dashboard. Join the list for early-bird pricing.",
+    "V-DRIVE is a plug-and-play CAN bus device that reads what your car actually knows, streamed to the SIGNAL dashboard. Join the notify list for early-bird pricing when it launches on Kickstarter.",
   openGraph: {
     title: "V-DRIVE on Kickstarter: Know What Your Car Knows",
     description:
-      "Launching July 4, 2026. Deep CAN bus telemetry for Turo hosts and small EV fleets. Get early-bird pricing.",
+      "Deep CAN bus telemetry for Turo hosts and small EV fleets. Join the notify list for early-bird pricing.",
     url: "https://veynqor.com/kickstarter",
     images: [{ url: "/images/og/og-kickstarter.png", width: 1200, height: 630, alt: "V-DRIVE on Kickstarter" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "V-DRIVE on Kickstarter: Know What Your Car Knows",
-    description: "Launching July 4, 2026. Get early-bird pricing.",
+    description: "Join the notify list for early-bird pricing.",
     images: ["/images/og/og-kickstarter.png"],
   },
 };
@@ -196,7 +195,7 @@ export default async function KickstarterPage({
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-electric/20 bg-electric/5 text-electric text-sm mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-electric animate-pulse" />
-                Launching on Kickstarter &middot; July 4, 2026
+                Coming soon on Kickstarter
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-5">
                 Know What Your
@@ -207,10 +206,6 @@ export default async function KickstarterPage({
                 V-DRIVE is a plug-and-play device that reads the full CAN bus of your car, not just generic
                 codes, and streams it to the SIGNAL dashboard. Built for Turo hosts and small EV fleets.
               </p>
-
-              <div className="mb-8">
-                <Countdown />
-              </div>
 
               <div id="notify-hero" className="max-w-md">
                 <EmailCaptureForm
@@ -380,7 +375,7 @@ export default async function KickstarterPage({
           <div className="max-w-2xl mb-4">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Reward tiers</h2>
             <p className="text-gray-400">
-              These are the tiers that will be available when backing opens on July 4. You cannot pledge yet.
+              These are the tiers that will be available when backing opens. You cannot pledge yet.
               Join the list and we will email you the moment the campaign goes live, so you can grab a
               limited early-bird slot first.
             </p>
@@ -508,9 +503,9 @@ export default async function KickstarterPage({
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Timeline</h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
             {[
-              { step: "Jul 2026", title: "Campaign opens", body: "Backing goes live on Kickstarter. Limited early-bird tiers first." },
-              { step: "Jul - Aug 2026", title: "Production", body: "We finalize the build and assemble backer units." },
-              { step: "Aug 2026", title: "Units ship", body: "Estimated delivery to backers, worldwide." },
+              { step: "At launch", title: "Campaign opens", body: "Backing goes live on Kickstarter. Limited early-bird tiers first." },
+              { step: "During production", title: "Production", body: "We finalize the build and assemble backer units." },
+              { step: "After production", title: "Units ship", body: "Estimated delivery to backers, worldwide." },
             ].map((item, i, arr) => (
               <div key={item.title} className="contents">
                 <div className="flex-1 max-w-xs text-center p-6">
@@ -542,8 +537,8 @@ export default async function KickstarterPage({
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-5">Be first in line.</h2>
           <p className="text-gray-400 mb-8">
-            Early-bird tiers are limited. Join the list and we will email you the moment backing opens on
-            July 4, before we announce anywhere else.
+            Early-bird tiers are limited. Join the list and we will email you the moment backing opens,
+            before we announce anywhere else.
           </p>
           <div className="max-w-md mx-auto text-left">
             <EmailCaptureForm

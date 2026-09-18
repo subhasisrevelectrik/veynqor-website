@@ -101,7 +101,7 @@ export default function SignalDemoPage() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">Want this for your car?</h2>
           <p className="text-gray-400 mb-8">
-            V-DRIVE is the device that makes this dashboard possible. It launches on Kickstarter on July 4.
+            V-DRIVE is the device that makes this dashboard possible. It is coming soon to Kickstarter.
           </p>
           <Link
             href="/kickstarter"

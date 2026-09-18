@@ -43,12 +43,12 @@ Then the rule:
 
 ---
 
-## At launch (July 4, 2026)
+## When the live campaign URL exists
 
-When the live Kickstarter campaign URL exists, change **both** rules to point at it and
-switch the status code to **301 (Permanent)**:
+Once there is a final, live Kickstarter campaign URL, change **both** rules to point at it
+and switch the status code to **301 (Permanent)**:
 
-- Change the destination from `https://veynqor.com/kickstarter` to your live campaign URL,
+- Change the destination from `https://veynqor.com/kickstarter` to the live campaign URL,
   e.g. `https://www.kickstarter.com/projects/veynqor/v-drive`.
 - Change `307` to `301`.
 
