@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "build-images": "node scripts/build-images.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

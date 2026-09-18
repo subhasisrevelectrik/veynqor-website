@@ -3,12 +3,17 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SARATHI &mdash; a wearable charioteer</title>
-<meta name="description" content="SARATHI is a free, offline, wearable voice companion carried through Black Rock City in 2026. It answers questions about the city and speaks from the Katha Upanishad and the Bhagavad Gita. No accounts, no network, no data collected." />
-<meta property="og:title" content="SARATHI &mdash; a wearable charioteer" />
-<meta property="og:description" content="A free, offline voice companion carried through Black Rock City in 2026. Nothing is recorded, nothing is transmitted, nothing is for sale." />
+<title>SARATHI 2: Calling Durga</title>
+<meta name="description" content="SARATHI is a free wearable voice companion that rode through Black Rock City fully offline. At Bay Area Decompression on October 17 it calls Durga: lift the conch, the question crosses the river, a second voice answers. No accounts, no logging, nothing for sale." />
+<meta property="og:title" content="SARATHI 2: Calling Durga" />
+<meta property="og:description" content="A wearable charioteer with a second voice. The Loom, Oakland, October 17, 2026." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sarathi.veynqor.com/" />
+<meta property="og:image" content="https://sarathi.veynqor.com/assets/img/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="A man wearing SARATHI, a black vest with a glowing ring and a round speaker on the chest, standing on the open playa with a large wooden temple behind him." />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" />
@@ -191,6 +196,24 @@
     line-height: 1.8;
   }
   footer p { margin: 0 0 .3rem; }
+
+  .photo-frame {
+    margin: 0 0 2.2rem;
+    background: var(--stone-deep);
+    padding: 10px;
+  }
+  .photo-frame picture,
+  .photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .photo-frame figcaption {
+    padding: 7px 4px 2px;
+    font-size: .84rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
 </style>
 </head>
 <body>
@@ -296,13 +319,31 @@
   <p class="attrib">Katha Upanishad 1.3.3</p>
 
   <h1>SARATHI
-    <em>A wearable voice companion, carried on foot through Black Rock City. It listens, it answers out loud, and it runs entirely on the battery in the pack. Nothing it hears leaves the device.</em>
+    <em>A wearable voice companion that rode through Black Rock City on its builder's chest, and comes to Oakland with a second voice.</em>
   </h1>
 
   <h2>If you met it out there</h2>
-  <p>SARATHI is worn, not held. Ask it where something is and it will work out the walk from where you are standing and tell you which way to turn. Ask it something harder and it will answer from the Upanishads and the Gita, in the voice of a charioteer who has had this conversation before.</p>
+
+  <figure class="photo-frame">
+    <picture>
+      <source type="image/avif"
+              srcset="assets/img/slot-a-1600.avif 1600w, assets/img/slot-a-800.avif 800w"
+              sizes="(max-width: 46rem) calc(100vw - 3.2rem), 685px">
+      <source type="image/webp"
+              srcset="assets/img/slot-a-1600.webp 1600w, assets/img/slot-a-800.webp 800w"
+              sizes="(max-width: 46rem) calc(100vw - 3.2rem), 685px">
+      <img src="assets/img/slot-a-1200.jpg"
+           width="1200" height="670"
+           alt="A man wearing SARATHI, a black vest with a glowing ring and a round speaker on the chest, standing on the open playa with a large wooden temple behind him."
+           decoding="async" loading="eager" fetchpriority="high">
+    </picture>
+    <figcaption>Black Rock City, August 2026. The chariot, mid-morning, outside the Temple.</figcaption>
+  </figure>
+
+  <p>The first SARATHI was a journey. It rode to Burning Man 2026 on its builder's chest: a small computer, a ring of microphones on a steel plate, a speaker, and a game controller for push-to-talk. It ran completely offline for the week. It knew the Katha Upanishad and the Gita, it knew where the camps and art stood, and it worked out the walk from wherever you were standing.</p>
   <p>It is slow on purpose. It thinks for a few seconds before it speaks, the way you would want a charioteer to.</p>
   <p>It is also, plainly, a joke at the expense of the smart glasses that record you. This one has no camera, keeps no transcript, and forgets you the moment you walk away.</p>
+  <p>Nachiketa was offered horses, gold, and music to stop asking. SARATHI was offered Wi-Fi.</p>
 
   <h2>How it works</h2>
   <p>Everything runs on the wearer's body. There is no server, no account, and no connection to anything &mdash; which is the only architecture that survives a week with no signal.</p>
@@ -328,13 +369,13 @@
 
   <div class="disclaimer">
     <p><strong>This app is not affiliated, endorsed, or verified by Burning Man Project.</strong></p>
-    <p>SARATHI uses Event Data published by Burning Man Project under the Terms of Service for Burning Man APIs and Datasets. Camp and art locations are withheld from the device's answers until the dates those terms specify.</p>
+    <p>SARATHI uses Event Data published by Burning Man Project under the Terms of Service for Burning Man APIs and Datasets.</p>
   </div>
 
   <footer>
     <p>Built by Subhasis Behera as a personal art project.</p>
     <p><a href="mailto:subhasis@veynqor.com">subhasis@veynqor.com</a></p>
-    <p>Black Rock City, 2026.</p>
+    <p>Black Rock City, August 2026. The Loom, Oakland, October 2026.</p>
   </footer>
 
 </main>

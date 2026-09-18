@@ -1,0 +1,7 @@
+docs/
+scripts/
+assets/src/
+node_modules/
+package.json
+package-lock.json
+.gitignore

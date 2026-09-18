@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SARATHI 2: Calling Durga (design prototype)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Martel:wght@300;400;600&family=Martel+Sans:wght@400;600&display=swap');
+
+:root{
+  --night:#13233B; --dusk:#1B2F4E; --deep:#0B1526;
+  --cloth:#F5EFE3; --cloth2:#E9DEC6; --rice:#EFE3C8; --wood:#7A4A22;
+  --turmeric:#EDB144; --sindoor:#B3261E; --brass:#C99A3A; --silt:#9AA7BA; --ink:#1B2033;
+  --serif:'Martel','Iowan Old Style','Palatino Linotype',Georgia,'Noto Serif Devanagari','Nirmala UI',serif;
+  --sans:'Martel Sans','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --measure:62ch;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--serif);font-size:18px;line-height:1.7;color:var(--cloth);background:var(--night)}
+h1,h2,h3{font-weight:400;line-height:1.15;margin:0 0 .5em}
+h2{font-size:clamp(30px,4vw,42px)}
+h3{font-size:22px;margin-top:1.6em}
+p{margin:0 0 1.1em}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.prose{max-width:var(--measure)}
+.sec{padding:88px 0}
+.light{background:var(--cloth);color:var(--ink)}
+.light .muted{color:#5B6478}
+.muted{color:var(--silt)}
+.small{font-size:15px;line-height:1.55}
+button{font-family:var(--sans);font-size:16px;cursor:pointer}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--turmeric);outline-offset:3px}
+.btn{background:var(--brass);color:var(--deep);border:0;padding:12px 20px;border-radius:6px;font-weight:600;box-shadow:inset 0 -3px 0 rgba(0,0,0,.25)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--cloth);border:1px solid var(--silt);box-shadow:none}
+.light .btn.ghost{color:var(--ink);border-color:#8C96A8}
+
+/* Now strip */
+.now{background:var(--sindoor);color:var(--cloth);font-family:var(--sans);font-size:15px;padding:10px 0}
+.now .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between}
+.now a{text-decoration:underline;text-underline-offset:3px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:120px 0 96px;background:linear-gradient(180deg,#0E1B30 0%,var(--night) 70%)}
+.hero .wheel{position:absolute;right:-180px;top:-120px;width:640px;height:640px;opacity:.28;pointer-events:none}
+.hero .verse{font-size:clamp(28px,4.6vw,50px);line-height:1.5;margin:0 0 20px;max-width:22ch;color:#FFF3D6}
+.hero .verse span{display:inline-block;opacity:0;transform:translateY(8px)}
+.hero .gloss{max-width:var(--measure);font-size:19px;color:#D7DDE8}
+.hero .cite{font-family:var(--sans);font-size:14px;color:var(--silt);margin-bottom:56px}
+.hero h1{font-size:clamp(52px,8vw,96px);letter-spacing:.02em;color:var(--turmeric);margin-bottom:8px}
+.hero .sub{font-size:22px;max-width:36ch;color:#E6E9F0;font-style:italic}
+
+/* Photo frames */
+.frame{background:var(--cloth2);padding:10px;border-radius:2px;color:var(--ink)}
+.frame .img{position:relative;background:var(--dusk);aspect-ratio:3/2;display:grid;place-items:center;overflow:hidden;border-radius:2px}
+.frame .img.wide{aspect-ratio:21/9}
+.frame .img.tall{aspect-ratio:4/5}
+.frame .img svg{width:100%;height:100%}
+.frame .label{position:absolute;left:12px;bottom:10px;font-family:var(--sans);font-size:12.5px;line-height:1.35;color:#F5EFE3;background:rgba(11,21,38,.72);padding:6px 9px;border-radius:3px;max-width:88%}
+.frame figcaption{font-family:var(--sans);font-size:14px;color:#4B5468;padding:10px 4px 2px}
+.triptych{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:40px 0 8px}
+.band{margin:0 0 56px}
+
+/* Pleated cloth band */
+.pleat{height:34px;background:repeating-linear-gradient(90deg,var(--sindoor) 0 26px,var(--cloth) 26px 52px);position:relative}
+.pleat::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px;background:inherit;-webkit-mask:radial-gradient(circle at 13px 0,#000 12px,transparent 13px) 0 0/26px 14px;mask:radial-gradient(circle at 13px 0,#000 12px,transparent 13px) 0 0/26px 14px}
+.ch2{padding-top:0}
+.ch2 .wrap{padding-top:72px}
+.ch2 h2{margin-top:0}
+.pandal{margin:36px 0 12px}
+
+/* Call across the river */
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:start}
+.ringbox{position:sticky;top:20px;text-align:center}
+.ringbox svg{width:100%;max-width:380px;height:auto;display:block;margin:0 auto}
+.ringbox .state{font-family:var(--sans);font-size:14px;color:var(--silt);min-height:1.5em;margin-top:6px}
+.her{margin-top:18px;font-size:22px;line-height:1.4;color:#FFF3D6;opacity:0;transition:opacity 1.2s ease;min-height:3.2em;font-style:italic}
+.her.on{opacity:1}
+.controls{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;margin:26px 0 10px}
+.controls label{font-family:var(--sans);font-size:15px;color:var(--silt);display:inline-flex;gap:8px;align-items:center}
+.river{margin:34px 0 8px}
+.river svg{width:100%;height:120px;display:block}
+.river .cap{display:flex;justify-content:space-between;font-family:var(--sans);font-size:13.5px;color:var(--silt);margin-top:4px}
+.steps h3{margin-top:1.3em;color:var(--turmeric)}
+
+/* Lamps */
+.lamps{background:linear-gradient(180deg,var(--night),var(--dusk))}
+.tray{background:var(--rice);border:10px solid var(--wood);border-radius:6px;padding:18px;display:grid;grid-template-columns:repeat(12,1fr);gap:9px;cursor:pointer;box-shadow:inset 0 6px 18px rgba(0,0,0,.25);margin-top:26px;max-width:800px}
+.lamp{position:relative;width:100%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#E6D7B4,#C6B38B 70%,#A8946C)}
+.lamp::after{content:"";position:absolute;left:50%;top:50%;width:62%;height:70%;transform:translate(-50%,-56%) scale(.2);border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:radial-gradient(circle at 50% 72%,#FFF7D6,var(--turmeric) 42%,var(--sindoor) 92%);opacity:0;transition:opacity .35s ease,transform .5s cubic-bezier(.2,1.4,.4,1)}
+.lamp.lit::after{opacity:1;transform:translate(-50%,-56%) scale(1);box-shadow:0 0 16px 5px rgba(237,177,68,.65);animation:flicker 1.7s ease-in-out infinite;animation-delay:var(--d,0s)}
+.lampcount{font-family:var(--sans);font-size:15px;color:var(--silt);margin-top:14px}
+@keyframes flicker{0%,100%{transform:translate(-50%,-56%) scale(1) rotate(-2deg)}35%{transform:translate(-50%,-60%) scale(1.06) rotate(2deg)}70%{transform:translate(-50%,-54%) scale(.96) rotate(-1deg)}}
+
+/* Table of objects */
+.table{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:10px solid var(--brass);padding:24px 8px 18px;margin-top:30px;position:relative}
+.table::after{content:"";position:absolute;left:-2%;right:-2%;bottom:-24px;height:14px;background:var(--wood);border-radius:0 0 4px 4px}
+.obj{flex:1 1 140px;background:transparent;border:0;color:var(--ink);font-family:var(--sans);display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 6px 4px;border-radius:6px}
+.obj svg{width:64px;height:64px;transition:transform .25s ease}
+.obj:active svg{transform:translateY(2px)}
+.obj .n{font-weight:600;font-size:15px}
+.obj .d{font-size:13px;color:#5B6478;line-height:1.35;text-align:center;max-width:16ch}
+.obj.rung svg{animation:swing .7s ease}
+.obj.plucked svg{animation:twang .45s ease}
+@keyframes swing{0%{transform:rotate(0)}25%{transform:rotate(-14deg)}50%{transform:rotate(11deg)}75%{transform:rotate(-6deg)}100%{transform:rotate(0)}}
+@keyframes twang{0%,100%{transform:scaleX(1)}30%{transform:scaleX(.9)}60%{transform:scaleX(1.06)}}
+.printer{position:relative;margin-top:60px}
+.slipwrap{height:0;overflow:hidden;transition:height .9s steps(14)}
+.slipwrap.out{height:270px}
+.slip{position:relative;background:#FFFDF6;color:var(--ink);width:280px;margin:0 6% 0 auto;padding:18px 18px 22px;font-size:14px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,.18);border-top:2px dashed #C9BFA8}
+.slip .dv{font-size:18px;line-height:1.6;color:var(--night)}
+.slip .qr{width:64px;height:64px;margin:12px auto 0;background:conic-gradient(var(--ink) 25%,transparent 0 50%,var(--ink) 0 75%,transparent 0) 0 0/16px 16px;outline:3px solid #fff;outline-offset:-3px}
+.slip .stamp{position:absolute;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;background:var(--sindoor);opacity:.85;mix-blend-mode:multiply}
+
+/* Game */
+.game{display:grid;grid-template-columns:320px minmax(0,1fr);gap:48px;align-items:center;margin-top:24px}
+.game svg{width:100%;height:auto;display:block;cursor:pointer}
+.game .msg{font-size:22px;min-height:2.5em;color:#FFF3D6}
+.game .form{font-family:var(--sans);color:var(--silt);font-size:15px}
+
+/* Verses */
+.verses{text-align:center}
+.verses .v{margin:0 auto 56px;max-width:30ch}
+.verses .dv{font-size:clamp(26px,3.6vw,38px);line-height:1.6;color:#FFF3D6;margin-bottom:10px;text-shadow:0 0 22px rgba(237,177,68,.35)}
+.verses .iast{font-style:italic;color:#D7DDE8;margin-bottom:6px}
+.verses .en{color:var(--cloth);max-width:40ch;margin:0 auto}
+.verses .src{font-family:var(--sans);font-size:14px;color:var(--turmeric);margin-bottom:12px}
+
+/* Visarjan */
+.visarjan{background:linear-gradient(180deg,var(--night),var(--deep) 60%,#060D18);padding-bottom:40px}
+.water{margin:36px 0 10px}
+.water svg{width:100%;height:150px;display:block}
+.farewell{font-size:22px;color:#D7DDE8}
+.bn{font-size:24px;color:var(--turmeric)}
+
+footer{background:#060D18;padding:56px 0 64px;font-family:var(--sans);font-size:14.5px;color:var(--silt)}
+footer .disc{border:1px solid var(--silt);padding:14px 16px;color:var(--cloth);display:inline-block;margin:0 0 18px;font-family:var(--serif);font-size:16px}
+footer p{margin:0 0 8px}
+
+/* Motion */
+@media (prefers-reduced-motion:no-preference){
+  .hero .wheel{animation:turn 240s linear infinite}
+  .hero .verse span{animation:rise .9s ease forwards;animation-delay:calc(var(--i)*.16s + .2s)}
+  .river .flow{animation:flow 6s linear infinite}
+  .river .flow.b{animation-duration:9s}
+  .river .flow.c{animation-duration:7.5s;animation-direction:reverse}
+  .water .rip{animation:ripple 5s ease-out infinite}
+  .water .rip.two{animation-delay:1.7s}
+  .water .rip.three{animation-delay:3.4s}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero .verse span{opacity:1;transform:none}
+  .lamp.lit::after{animation:none}
+  .slipwrap{transition:none}
+}
+@keyframes turn{to{transform:rotate(360deg)}}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes flow{to{stroke-dashoffset:-200}}
+@keyframes ripple{0%{transform:scale(.2);opacity:.7}100%{transform:scale(1);opacity:0}}
+
+/* Responsive */
+@media (max-width:920px){
+  .cols{grid-template-columns:1fr}
+  .ringbox{position:static;margin:24px 0 8px}
+  .game{grid-template-columns:1fr}
+  .game svg{max-width:320px}
+  .triptych{grid-template-columns:1fr}
+  .tray{grid-template-columns:repeat(9,1fr)}
+  .hero .wheel{right:-260px;top:-200px;opacity:.18}
+  .sec{padding:64px 0}
+  .ch2{padding-top:0}
+}
+</style>
+</head>
+<body>
+
+<div class="now">
+  <div class="wrap">
+    <div><strong>SARATHI 2: Calling Durga.</strong> Proposed for Bay Area Decompression, The Loom, Oakland. Saturday, October 17, 2026, 2 pm to midnight.</div>
+    <div>Scanned a slip? <a href="#verses">The verses are here.</a></div>
+  </div>
+</div>
+
+<header class="hero">
+  <svg class="wheel" viewBox="0 0 400 400" aria-hidden="true">
+    <g fill="none" stroke="#EDB144" stroke-width="2">
+      <circle cx="200" cy="200" r="184"/><circle cx="200" cy="200" r="168" stroke-width="6"/>
+      <circle cx="200" cy="200" r="56"/><circle cx="200" cy="200" r="22" stroke-width="5"/>
+      <g id="spk"></g>
+    </g>
+  </svg>
+  <div class="wrap">
+    <p class="verse" id="verse">आत्मानं रथिनं विद्धि शरीरं रथमेव तु। बुद्धिं तु सारथिं विद्धि मनः प्रग्रहमेव च॥</p>
+    <p class="gloss">Know the self as the one who rides, and the body as the chariot. Know discernment as the charioteer, and the mind as the reins held in its hands.</p>
+    <p class="cite">Katha Upanishad 1.3.3</p>
+    <h1>SARATHI</h1>
+    <p class="sub">A wearable voice companion that rode through Black Rock City on its builder's chest, and comes to Oakland with a second voice.</p>
+  </div>
+</header>
+
+<section class="sec ch1">
+  <div class="wrap">
+    <figure class="frame band">
+      <div class="img wide">
+        <svg viewBox="0 0 1050 450" aria-hidden="true">
+          <defs><linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B2F4E"/><stop offset="1" stop-color="#3A2B3A"/></linearGradient></defs>
+          <rect width="1050" height="450" fill="url(#dusk)"/>
+          <ellipse cx="525" cy="470" rx="700" ry="90" fill="#C9B99A" opacity=".35"/>
+          <g fill="none" stroke="#EDB144" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+            <path d="M470 120 c-24 0 -40 14 -40 40 v52 c0 20 14 34 34 34 h122 c20 0 34 -14 34 -34 v-52 c0 -26 -16 -40 -40 -40 z"/>
+            <path d="M448 250 l-36 130 M602 250 l36 130 M478 250 l-16 130 M572 250 l16 130"/>
+            <path d="M434 156 c-28 22 -38 70 -28 122 M616 156 c28 22 38 70 28 122"/>
+            <circle cx="525" cy="60" r="34"/>
+            <rect x="482" y="150" width="86" height="64" rx="10"/>
+            <circle cx="525" cy="182" r="9"/><circle cx="500" cy="182" r="5"/><circle cx="550" cy="182" r="5"/><circle cx="525" cy="160" r="5"/><circle cx="525" cy="204" r="5"/>
+            <path d="M410 170 c-30 0 -50 26 -50 60 v110 c0 20 16 36 36 36 h44" stroke="#9AA7BA" stroke-width="2"/>
+          </g>
+          <g fill="#EDB144" opacity=".5"><circle cx="120" cy="80" r="2"/><circle cx="240" cy="40" r="1.6"/><circle cx="820" cy="60" r="2"/><circle cx="960" cy="120" r="1.5"/><circle cx="700" cy="30" r="1.4"/></g>
+        </svg>
+        <span class="label">Photo slot A: SARATHI on the playa at dusk, chest plate and mic array visible, no Man or event marks in frame. Treatment: indigo duotone, verse overlaid.</span>
+      </div>
+      <figcaption>The illustration is a stand-in. Your own playa photograph goes here.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2>Chapter one. Black Rock City</h2>
+      <p>The first SARATHI was a journey. It rode to Burning Man 2026 on my chest: a small computer, a ring of microphones on a steel plate, a speaker, and a game controller for push-to-talk. It ran completely offline for the week. It knew the Katha Upanishad and the Gita, it knew where the camps and art stood, and it worked out the walk from wherever we were standing.</p>
+      <p>It is slow on purpose. It thinks for a few seconds before it speaks, the way you would want a charioteer to.</p>
+      <p>It is also, plainly, a joke at the expense of the smart glasses that record you. This one has no camera, keeps no transcript, and forgets you the moment you walk away.</p>
+      <p>Nachiketa was offered horses, gold, and music to stop asking. SARATHI was offered Wi-Fi.</p>
+    </div>
+
+    <div class="triptych">
+      <figure class="frame"><div class="img"><span class="label">Photo slot B: the steel chest plate and four microphones, close, brass light.</span></div><figcaption>Detail, the plate.</figcaption></figure>
+      <figure class="frame"><div class="img"><span class="label">Photo slot C: the pack open, the small computer and battery, hands in frame.</span></div><figcaption>Detail, the pack.</figcaption></figure>
+      <figure class="frame"><div class="img"><span class="label">Photo slot D: the shirt with the verse, dust on it, evening.</span></div><figcaption>The shirt.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec light ch2">
+  <div class="pleat" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="prose">
+      <h2>Chapter two. Calling Durga</h2>
+      <p>Decompression falls during Durga Puja, October 16 to 21, the biggest festival in eastern India, where I am from. Every year, Bengal builds temporary temples called pandals and invites the goddess home. On the last day, her image is carried to the river and given back to the water.</p>
+      <p>A demon named Mahishasura could not be killed by any god, so the gods pooled their power into one figure, Durga. Each gave her a weapon. Shiva a trident, Vishnu a discus, the Himalaya a lion to ride, and Varuna, lord of the waters, a conch. The battle lasted nine nights. Mahishasura kept changing shape, buffalo to lion to man to elephant and back, until she caught him halfway through a change and finished it there.</p>
+      <p>Everyone at Decompression knows a demon like that. It is whatever takes back the kingdom when you come home from the desert, and it never holds one shape long enough to catch.</p>
+      <p>This time the chariot stands still, and the goddess comes to it.</p>
+    </div>
+
+    <figure class="frame pandal">
+      <div class="img wide" style="background:#FBF6EA">
+        <svg viewBox="0 0 1050 450" aria-hidden="true">
+          <defs>
+            <pattern id="stripes" width="24" height="40" patternUnits="userSpaceOnUse"><rect width="12" height="40" fill="#B3261E"/><rect x="12" width="12" height="40" fill="#F5EFE3"/></pattern>
+            <radialGradient id="glow"><stop offset="0" stop-color="#FFF3C4" stop-opacity=".9"/><stop offset=".55" stop-color="#EDB144" stop-opacity=".35"/><stop offset="1" stop-color="#EDB144" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="1050" height="450" fill="#FBF6EA"/>
+          <rect x="130" y="60" width="790" height="20" fill="#B3261E"/>
+          <path d="M120 60 L525 8 L930 60 Z" fill="#8F1D17"/>
+          <rect x="120" y="78" width="810" height="38" fill="url(#stripes)"/>
+          <path d="M120 116 h810" stroke="#8F1D17" stroke-width="3"/>
+          <g fill="#F5EFE3"><circle cx="132" cy="116" r="12"/><circle cx="156" cy="116" r="12"/></g>
+          <g id="scallops" fill="#F5EFE3"></g>
+          <rect x="142" y="116" width="16" height="300" fill="#7A4A22"/><rect x="892" y="116" width="16" height="300" fill="#7A4A22"/>
+          <rect x="190" y="128" width="670" height="230" fill="#8F1D17"/>
+          <rect x="200" y="138" width="650" height="210" fill="#B3261E"/>
+          <circle cx="525" cy="235" r="120" fill="url(#glow)"/>
+          <g id="pandalRing" fill="#FFE9A8"></g>
+          <g fill="none" stroke="#EDB144" stroke-width="4" stroke-linecap="round">
+            <path d="M262 250 v-68"/><path d="M262 182 v-34"/><path d="M244 184 c-12 -10 -8 -34 6 -34 M280 184 c12 -10 8 -34 -6 -34"/><path d="M244 184 h36"/>
+          </g>
+          <rect x="700" y="160" width="112" height="150" fill="#8F1D17" stroke="#EDB144" stroke-width="4"/>
+          <text x="756" y="240" text-anchor="middle" fill="#EDB144" font-size="13" font-family="Martel Sans, sans-serif">Durga print</text>
+          <g id="garlandL"></g><g id="garlandR"></g>
+          <rect x="250" y="330" width="550" height="26" fill="#F5EFE3"/><rect x="250" y="356" width="550" height="60" fill="#E9DEC6"/>
+          <path d="M270 416 v26 M780 416 v26" stroke="#7A4A22" stroke-width="8"/>
+          <path d="M300 322 c-22 -6 -34 -20 -30 -34 c4 -12 22 -14 34 -4 c12 10 10 24 -4 38 z M300 322 c14 -2 22 -12 20 -22" fill="#F8F1E4" stroke="#8C7A5A" stroke-width="3"/>
+          <path d="M380 330 c0 -30 14 -46 30 -46 s30 16 30 46 z M395 330 h30" fill="#C99A3A" stroke="#7A5A16" stroke-width="2.5"/>
+          <path d="M470 328 c30 -60 100 -60 130 0" fill="none" stroke="#7A4A22" stroke-width="5"/><path d="M470 328 h130" stroke="#3A2B1A" stroke-width="1.5"/>
+          <rect x="640" y="300" width="150" height="32" rx="3" fill="#EFE3C8" stroke="#7A4A22" stroke-width="4"/>
+          <g id="trayLamps" fill="#EDB144"></g>
+        </svg>
+        <span class="label">Render slot E: the pandal wide, no people, 2 pm light. Red and white cloth, marigolds, the ring glowing behind the table. Made in Nano Banana from the questionnaire image.</span>
+      </div>
+      <figcaption>Drawn stand-in for the Nano Banana render. The live ring is layered over the render on the page, so it breathes.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec call" id="call">
+  <div class="wrap">
+    <div class="cols">
+      <div class="prose steps">
+        <h2>At the pandal</h2>
+        <h3>Ask SARATHI anything</h3>
+        <p>It answers first, on its own, from the small computer on my chest.</p>
+        <h3>Call Durga</h3>
+        <p>When a question is bigger than the chariot, lift the conch from its cradle. The conch sounds, the ring spins while the question crosses the river, and a second voice answers. Hers.</p>
+        <div class="controls">
+          <button class="btn" id="conchBtn">Lift the conch</button>
+          <label><input type="checkbox" id="noSignal"> The river runs low (no signal)</label>
+        </div>
+        <div class="river" aria-hidden="true">
+          <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
+            <path class="flow a" d="M0 46 C 90 20, 160 80, 250 52 S 400 20, 500 52 S 660 84, 750 52 S 920 20, 1000 46" fill="none" stroke="#4A6FA8" stroke-width="2.5" stroke-dasharray="14 10"/>
+            <path class="flow b" id="riverMid" d="M0 62 C 100 34, 170 96, 260 66 S 420 36, 520 66 S 680 98, 770 66 S 930 36, 1000 62" fill="none" stroke="#6A94D0" stroke-width="3" stroke-dasharray="18 12"/>
+            <path class="flow c" d="M0 80 C 80 56, 190 108, 280 82 S 440 54, 540 82 S 700 110, 790 82 S 940 56, 1000 80" fill="none" stroke="#4A6FA8" stroke-width="2.5" stroke-dasharray="10 14"/>
+            <circle id="dotOut" r="6" fill="#EDB144" opacity="0"/>
+            <circle id="dotBack" r="8" fill="#FFF3D6" opacity="0"/>
+          </svg>
+          <div class="cap"><span>The chest. Speech becomes text here.</span><span>Across the river. A hosted model.</span></div>
+        </div>
+        <p class="small muted">Your voice never leaves the device. Only the text of the question crosses, only while the conch is lifted, and the conch tells everyone nearby that it is happening. If the river runs low, SARATHI answers on its own, the way it did in the desert.</p>
+        <h3>Light a lamp</h3>
+        <p>Each question lights one of 108 lamps in a tray of rice, like the 108 lamps of Sandhi Puja. The goal is 108 questions by midnight.</p>
+        <h3>Play</h3>
+        <p>Pluck the bow to hear a warrior's bowstring. Ring the bell. Kids can play Catch Mahishasura.</p>
+        <h3>Give her something</h3>
+        <p>In the myth, every god gave Durga a gift. An offering board asks what you would give her, and the cards become an artwork by midnight.</p>
+        <h3>Take the verse home</h3>
+        <p>You leave with a printed slip showing the verse your question landed on, and a way back to this page.</p>
+      </div>
+      <div class="ringbox">
+        <svg id="ring" viewBox="0 0 320 320" role="img" aria-label="A ring of sixty lamps that breathes when idle, spins while a call crosses the river, and blazes when she answers">
+          <defs><filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter></defs>
+          <circle cx="160" cy="160" r="128" fill="none" stroke="#243A5E" stroke-width="14"/>
+          <g class="leds"></g>
+          <g class="ledsGlow" filter="url(#soft)" opacity=".7"></g>
+        </svg>
+        <div class="state" id="ringState">Idle. Breathing gold.</div>
+        <p class="her" id="her" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec lamps">
+  <div class="wrap">
+    <div class="prose">
+      <h2>108 lamps</h2>
+      <p>Tap the tray to light one. The page does not remember how many you lit. Neither does SARATHI.</p>
+    </div>
+    <div class="tray" id="tray" role="button" tabindex="0" aria-label="Tray of 108 lamps. Activate to light the next lamp."></div>
+    <div class="lampcount" id="lampcount">0 of 108 lit</div>
+  </div>
+</section>
+
+<section class="sec light">
+  <div class="wrap">
+    <div class="prose">
+      <h2>On the table</h2>
+      <p>Six objects, each doing one thing. Tap them.</p>
+    </div>
+    <div class="table">
+      <button class="obj" data-obj="conch">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1B2033" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 44c-8-8-6-22 4-28 8-5 20-2 26 8 4 8 2 18-6 22-6 3-14 1-18-5-3-5-1-12 4-14 4-2 9 0 10 4 1 3-1 6-4 6"/><path d="M14 44l-6 8h44l4-8"/></svg>
+        <span class="n">Conch</span><span class="d">Lift it. The call goes across the river.</span>
+      </button>
+      <button class="obj" data-obj="bow">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1B2033" stroke-width="2.4" stroke-linecap="round"><path d="M14 8c26 6 26 42 0 48"/><path d="M14 8v48"/></svg>
+        <span class="n">Bow</span><span class="d">Pluck it. A warrior's bowstring.</span>
+      </button>
+      <button class="obj" data-obj="bell">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1B2033" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6v6"/><path d="M18 42c0-14 4-26 14-26s14 12 14 26z"/><path d="M14 42h36"/><path d="M28 48a4 4 0 0 0 8 0"/><circle cx="32" cy="52" r="2"/></svg>
+        <span class="n">Bell</span><span class="d">Ring it. Brass, from a temple shop.</span>
+      </button>
+      <button class="obj" data-obj="lamp">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1B2033" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 12c-6 8-10 12-10 20a10 10 0 0 0 20 0c0-8-4-12-10-20z"/><path d="M14 46h36l-4 8H18z"/></svg>
+        <span class="n">Lamp</span><span class="d">One per question. 108 by midnight.</span>
+      </button>
+      <button class="obj" data-obj="ring">
+        <svg viewBox="0 0 64 64" fill="#1B2033"><g id="miniRing"></g></svg>
+        <span class="n">Ring</span><span class="d">Her discus. Breathes, spins, blazes.</span>
+      </button>
+      <button class="obj" data-obj="printer">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#1B2033" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="26" width="44" height="18" rx="3"/><path d="M20 26V12h24v14"/><path d="M20 44v10h24V44"/><path d="M26 50h12"/></svg>
+        <span class="n">Printer</span><span class="d">The verse your question landed on.</span>
+      </button>
+    </div>
+    <div class="printer">
+      <div class="slipwrap" id="slipwrap">
+        <div class="slip">
+          <div class="dv">या देवी सर्वभूतेषु बुद्धिरूपेण संस्थिता</div>
+          <div>To the goddess who lives in every being as discernment.</div>
+          <div class="small" style="margin-top:8px;color:#5B6478">Devi Mahatmya, chapter 5. Your question, 9:41 pm. Nothing kept.</div>
+          <div class="qr" aria-hidden="true"></div>
+          <div class="small" style="text-align:center;margin-top:6px;color:#5B6478">sarathi.veynqor.com</div>
+          <div class="stamp" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Catch Mahishasura</h2>
+      <p>The demon runs the ring and keeps changing shape. Stop him in the gold gap, halfway through a change, and you have him. Tap the ring or press space.</p>
+    </div>
+    <div class="game">
+      <svg id="gameRing" viewBox="0 0 320 320" role="img" aria-label="Catch Mahishasura game ring">
+        <circle cx="160" cy="160" r="122" fill="none" stroke="#243A5E" stroke-width="10"/>
+        <g class="segs"></g>
+        <text x="160" y="152" text-anchor="middle" fill="#F5EFE3" font-size="15" font-family="Martel Sans, sans-serif" id="gameLabel">Tap to stop</text>
+        <text x="160" y="180" text-anchor="middle" fill="#9AA7BA" font-size="13" font-family="Martel Sans, sans-serif" id="gameForm">buffalo</text>
+      </svg>
+      <div>
+        <p class="msg" id="gameMsg">He is a buffalo now. Watch the red light.</p>
+        <p class="form" id="gameScore">Caught: 0</p>
+        <button class="btn ghost" id="gameReset">Start again</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec verses" id="verses">
+  <div class="wrap">
+    <h2>The verses</h2>
+    <p class="muted" style="max-width:44ch;margin:0 auto 48px">If your slip led you here, this is the whole of what it printed.</p>
+    <div class="v">
+      <div class="src">Katha Upanishad 1.3.3</div>
+      <div class="dv">आत्मानं रथिनं विद्धि शरीरं रथमेव तु। बुद्धिं तु सारथिं विद्धि मनः प्रग्रहमेव च॥</div>
+      <div class="iast">ātmānaṁ rathinaṁ viddhi śarīraṁ ratham eva tu, buddhiṁ tu sārathiṁ viddhi manaḥ pragraham eva ca.</div>
+      <div class="en">Know the self as the one who rides, and the body as the chariot. Know discernment as the charioteer, and the mind as the reins.</div>
+    </div>
+    <div class="v">
+      <div class="src">Devi Mahatmya, chapter 5</div>
+      <div class="dv">या देवी सर्वभूतेषु बुद्धिरूपेण संस्थिता। नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥</div>
+      <div class="iast">yā devī sarvabhūteṣu buddhirūpeṇa saṃsthitā, namas tasyai namas tasyai namas tasyai namo namaḥ.</div>
+      <div class="en">To the goddess who lives in every being as discernment: salutations to her, again and again.</div>
+    </div>
+    <p class="muted small" style="max-width:44ch;margin:0 auto">The same hymn praises her as memory and as consciousness. Recall and awareness are two of the words in SARATHI's name.</p>
+  </div>
+</section>
+
+<section class="sec visarjan">
+  <div class="wrap">
+    <div class="prose">
+      <h2>Visarjan. She goes home</h2>
+      <p class="farewell">At the end of the night the conch sounds one last time. Her voice goes quiet. The charioteer is self-contained again, alone on the chest, the way it was in the desert.</p>
+      <p class="farewell">The Burn ends in fire. The Puja ends in water. Both make something beautiful and then let it go.</p>
+      <p class="bn">আসছে বছর আবার হবে</p>
+      <p class="muted">Asche bochor abar hobe. It will happen again next year.</p>
+    </div>
+    <div class="water" aria-hidden="true">
+      <svg viewBox="0 0 1000 150">
+        <g stroke="#3B5B8A" fill="none" stroke-width="1.5">
+          <ellipse class="rip" cx="500" cy="80" rx="380" ry="34" style="transform-origin:500px 80px"/>
+          <ellipse class="rip two" cx="500" cy="80" rx="380" ry="34" style="transform-origin:500px 80px"/>
+          <ellipse class="rip three" cx="500" cy="80" rx="380" ry="34" style="transform-origin:500px 80px"/>
+        </g>
+        <g id="reflection" opacity=".35"></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">This app is not affiliated, endorsed, or verified by Burning Man Project.</p>
+    <p>SARATHI uses Event Data published by Burning Man Project under the Terms of Service for Burning Man APIs and Datasets.</p>
+    <p>Built by Subhasis Behera as a personal art project. Nothing recorded, nothing transmitted without asking, nothing for sale.</p>
+    <p>subhasis@veynqor.com</p>
+    <p>Black Rock City, August 2026. The Loom, Oakland, October 2026.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const NS='http://www.w3.org/2000/svg';
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const el=(t,a,p)=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);if(p)p.appendChild(n);return n;};
+
+  /* Hero verse: one page-load reveal */
+  const verse=document.getElementById('verse');
+  verse.innerHTML=verse.textContent.trim().split(/\s+/).map((w,i)=>`<span style="--i:${i}">${w}</span>`).join(' ');
+
+  /* Konark wheel spokes: 8 major, 8 minor */
+  const spk=document.getElementById('spk');
+  for(let i=0;i<16;i++){const a=i*Math.PI/8,c=Math.cos(a),s=Math.sin(a),maj=i%2===0;
+    el('line',{x1:200+22*c,y1:200+22*s,x2:200+168*c,y2:200+168*s,'stroke-width':maj?6:2},spk);
+    if(maj)el('circle',{cx:200+112*c,cy:200+112*s,r:7},spk);}
+
+  /* Pandal illustration details */
+  const sc=document.getElementById('scallops');for(let x=132;x<=920;x+=24)el('circle',{cx:x,cy:116,r:12},sc);
+  const pr=document.getElementById('pandalRing');for(let i=0;i<60;i++){const a=i/60*2*Math.PI;el('circle',{cx:525+96*Math.cos(a),cy:235+96*Math.sin(a),r:4.2},pr);}
+  const gl=document.getElementById('garlandL'),gr=document.getElementById('garlandR');
+  for(let i=0;i<9;i++){const y=140+i*30;[[172,gl],[878,gr]].forEach(([x,g])=>{el('circle',{cx:x+(i%2?4:-4),cy:y,r:7,fill:i%3===1?'#EDB144':'#E8801A'},g);});}
+  const tl=document.getElementById('trayLamps');for(let r=0;r<2;r++)for(let c=0;c<9;c++)el('circle',{cx:652+c*16,cy:309+r*14,r:3.4},tl);
+  const mr=document.getElementById('miniRing');for(let i=0;i<20;i++){const a=i/20*2*Math.PI;el('circle',{cx:32+22*Math.cos(a),cy:32+22*Math.sin(a),r:2.6},mr);}
+  const rf=document.getElementById('reflection');for(let i=0;i<60;i++){const a=i/60*2*Math.PI;el('ellipse',{cx:500+300*Math.cos(a),cy:80+22*Math.sin(a),rx:3,ry:1.4,fill:'#EDB144'},rf);}
+
+  /* Audio, synthesized stand-ins for the recorded conch, bell, and bowstring */
+  let ctx=null;const audio=()=>{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();return ctx;};
+  function conchSound(low){const c=audio(),t=c.currentTime,base=low?164:196;const m=c.createGain();m.gain.setValueAtTime(0.0001,t);m.gain.exponentialRampToValueAtTime(0.42,t+0.7);m.gain.setValueAtTime(0.42,t+1.9);m.gain.exponentialRampToValueAtTime(0.0001,t+3.4);m.connect(c.destination);
+    [[1,0.6,'sine'],[2,0.22,'triangle'],[3.01,0.1,'triangle'],[4.03,0.05,'sine']].forEach(([h,g,type])=>{const o=c.createOscillator();o.type=type;o.frequency.value=base*h;const v=c.createGain();v.gain.value=g;const lfo=c.createOscillator();lfo.frequency.value=5.3;const lg=c.createGain();lg.gain.value=base*h*0.006;lfo.connect(lg);lg.connect(o.frequency);o.connect(v);v.connect(m);lfo.start(t);o.start(t);o.stop(t+3.5);lfo.stop(t+3.5);});}
+  function bellSound(){const c=audio(),t=c.currentTime;[[880,0.5,2.2],[1760*1.01,0.18,1.4],[2640,0.08,0.9]].forEach(([f,g,d])=>{const o=c.createOscillator();o.type='sine';o.frequency.value=f;const v=c.createGain();v.gain.setValueAtTime(g,t);v.gain.exponentialRampToValueAtTime(0.0001,t+d);o.connect(v);v.connect(c.destination);o.start(t);o.stop(t+d);});}
+  function bowSound(){const c=audio(),t=c.currentTime;const o=c.createOscillator();o.type='sawtooth';o.frequency.setValueAtTime(110,t);o.frequency.exponentialRampToValueAtTime(98,t+0.5);const f=c.createBiquadFilter();f.type='lowpass';f.frequency.setValueAtTime(2600,t);f.frequency.exponentialRampToValueAtTime(300,t+0.55);const v=c.createGain();v.gain.setValueAtTime(0.35,t);v.gain.exponentialRampToValueAtTime(0.0001,t+0.6);o.connect(f);f.connect(v);v.connect(c.destination);o.start(t);o.stop(t+0.65);}
+
+  /* The ring: idle breathes, calling spins, answering blazes, off for visarjan */
+  const ring=document.getElementById('ring'),leds=ring.querySelector('.leds'),glow=ring.querySelector('.ledsGlow');
+  const L=[],G=[];for(let i=0;i<60;i++){const a=i/60*2*Math.PI,cx=160+128*Math.cos(a),cy=160+128*Math.sin(a);L.push(el('circle',{cx,cy,r:5,fill:'#EDB144'},leds));G.push(el('circle',{cx,cy,r:7,fill:'#EDB144'},glow));}
+  let ringState='idle',head=0,last=performance.now();const stateEl=document.getElementById('ringState');
+  function setRing(s,label){ringState=s;stateEl.textContent=label;}
+  function frame(now){const dt=Math.min(0.05,(now-last)/1000);last=now;const t=now/1000;
+    if(ringState==='calling')head=(head+dt*95)%60;
+    for(let i=0;i<60;i++){let o;
+      if(ringState==='idle')o=reduced?0.5:0.32+0.28*(0.5+0.5*Math.sin(t*0.9));
+      else if(ringState==='calling'){let d=Math.abs(i-head);d=Math.min(d,60-d);o=reduced?0.75:0.12+0.88*Math.max(0,1-d/9);}
+      else if(ringState==='answering')o=reduced?1:0.8+0.2*(0.5+0.5*Math.sin(t*4+i*0.1));
+      else o=0.06;
+      L[i].style.opacity=o;G[i].style.opacity=o*0.8;}
+    requestAnimationFrame(frame);}
+  requestAnimationFrame(frame);
+
+  /* The call across the river */
+  const btn=document.getElementById('conchBtn'),her=document.getElementById('her'),mid=document.getElementById('riverMid'),dotOut=document.getElementById('dotOut'),dotBack=document.getElementById('dotBack'),noSignal=document.getElementById('noSignal');
+  const len=mid.getTotalLength();let lifted=false,busy=false;
+  function travel(dot,from,to,dur){return new Promise(res=>{const t0=performance.now();dot.setAttribute('opacity','1');(function step(n){const k=Math.min(1,(n-t0)/dur),e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;const p=mid.getPointAtLength(len*(from+(to-from)*e));dot.setAttribute('cx',p.x);dot.setAttribute('cy',p.y);if(k<1)requestAnimationFrame(step);else res();})(t0);});}
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  async function fade(dot){for(let o=1;o>0;o-=0.1){dot.setAttribute('opacity',o);await wait(40);}dot.setAttribute('opacity','0');}
+  btn.addEventListener('click',async()=>{if(busy)return;
+    if(lifted){lifted=false;busy=true;btn.textContent='Lift the conch';her.classList.remove('on');setRing('idle','Idle. Breathing gold.');await wait(300);busy=false;return;}
+    busy=true;lifted=true;btn.textContent='Put the conch down';conchSound(false);setRing('calling','Calling. The question is crossing the river.');
+    if(noSignal.checked){await travel(dotOut,0,0.55,reduced?10:1500);await fade(dotOut);setRing('idle','No answer from across the river. SARATHI answers on its own.');her.textContent='The river ran low. SARATHI answered on its own, the way it did in the desert.';her.classList.add('on');busy=false;return;}
+    await travel(dotOut,0,1,reduced?10:1700);dotOut.setAttribute('opacity','0');await wait(350);await travel(dotBack,1,0,reduced?10:1100);dotBack.setAttribute('opacity','0');
+    setRing('answering','Answering. She is speaking.');her.textContent='You called across the river, and I have come.';her.classList.add('on');busy=false;});
+
+  /* 108 lamps */
+  const tray=document.getElementById('tray'),count=document.getElementById('lampcount');let lit=0;
+  for(let i=0;i<108;i++){const s=document.createElement('span');s.className='lamp';s.style.setProperty('--d',(-Math.random()*1.7).toFixed(2)+'s');tray.appendChild(s);}
+  function lightOne(){if(lit>=108)return;const l=tray.children[lit++];l.classList.add('lit');count.textContent=`${lit} of 108 lit`+(lit===108?'. Sandhi Puja.':'');}
+  tray.addEventListener('click',lightOne);tray.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();lightOne();}});
+  new IntersectionObserver((es,ob)=>{es.forEach(e=>{if(e.isIntersecting){lightOne();ob.disconnect();}});},{threshold:.4}).observe(tray);
+
+  /* Objects on the table */
+  const slip=document.getElementById('slipwrap');
+  document.querySelectorAll('.obj').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.obj;
+    if(k==='conch'){document.getElementById('call').scrollIntoView({behavior:reduced?'auto':'smooth'});if(!lifted)setTimeout(()=>btn.click(),reduced?0:700);}
+    else if(k==='bell'){bellSound();b.classList.remove('rung');void b.offsetWidth;b.classList.add('rung');}
+    else if(k==='bow'){bowSound();b.classList.remove('plucked');void b.offsetWidth;b.classList.add('plucked');}
+    else if(k==='lamp'){lightOne();}
+    else if(k==='ring'){const prev=ringState;setRing('answering','Blazing, for a moment.');setTimeout(()=>setRing(prev,prev==='idle'?'Idle. Breathing gold.':stateEl.textContent),1400);}
+    else if(k==='printer'){slip.classList.toggle('out');}
+  }));
+
+  /* Catch Mahishasura */
+  const gsvg=document.getElementById('gameRing'),segs=gsvg.querySelector('.segs'),gmsg=document.getElementById('gameMsg'),gscore=document.getElementById('gameScore'),gform=document.getElementById('gameForm'),glabel=document.getElementById('gameLabel');
+  const S=[];for(let i=0;i<36;i++){const a=i/36*2*Math.PI-Math.PI/2;S.push(el('circle',{cx:160+122*Math.cos(a),cy:160+122*Math.sin(a),r:8,fill:'#243A5E'},segs));}
+  const forms=['buffalo','lion','man with a sword','elephant'];
+  let gh=0,gspeed=14,gap=9,fi=0,caught=0,running=true,glast=performance.now();
+  function gframe(now){const dt=Math.min(0.05,(now-glast)/1000);glast=now;if(running&&!reduced)gh=(gh+dt*gspeed)%36;
+    const hi=Math.floor(gh);for(let i=0;i<36;i++){const inGap=(i-gap+36)%36<3;let fill=inGap?'#EDB144':'#243A5E',op=inGap?0.85:1;let d=Math.abs(i-gh);d=Math.min(d,36-d);if(d<1.5){fill='#E23B2E';op=1;}else if(d<3.5&&!inGap){fill='#6B2A2A';}S[i].setAttribute('fill',fill);S[i].setAttribute('opacity',op);}
+    requestAnimationFrame(gframe);}
+  requestAnimationFrame(gframe);
+  function stop(){if(!running)return;running=false;const hi=Math.floor(gh),inGap=(hi-gap+36)%36<3;
+    if(inGap){caught++;gspeed*=1.18;gmsg.textContent=`Caught, halfway out of the ${forms[fi]}. ${caught===1?'One down.':caught+' down.'}`;gscore.textContent=`Caught: ${caught}`;glabel.textContent='Caught';}
+    else{fi=(fi+1)%4;gmsg.textContent=`Missed. He became ${forms[fi]==='elephant'?'an':'a'} ${forms[fi]}.`;glabel.textContent='Missed';}
+    gform.textContent=forms[fi];setTimeout(()=>{gap=Math.floor(Math.random()*36);running=true;glabel.textContent='Tap to stop';},900);}
+  gsvg.addEventListener('click',stop);
+  document.addEventListener('keydown',e=>{if(e.key===' '&&document.activeElement.tagName!=='BUTTON'&&document.activeElement.id!=='tray'){e.preventDefault();stop();}});
+  document.getElementById('gameReset').addEventListener('click',()=>{caught=0;gspeed=14;fi=0;gscore.textContent='Caught: 0';gmsg.textContent='He is a buffalo now. Watch the red light.';gform.textContent='buffalo';running=true;});
+})();
+</script>
+</body>
+</html>
